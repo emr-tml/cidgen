@@ -3,9 +3,10 @@ BASECID="00000001008766A39D091E82DCB8"
 
 while true; do
     clear
-    echo "CIDgen by EMR"
+    echo "CIDgen by EMR, press any key to generate again."
     for i in {1..20}; do
-        echo "$BASECID$(printf "%04d" $((RANDOM % 10000)))"
+        SUFFIX=$(shuf -i 1-9 -n 4 | tr -d '\n')
+        echo "$BASECID$SUFFIX"
     done
     echo "--------------------------------"
     echo "Generated CIDs"
